@@ -1,5 +1,5 @@
 <script>
-    import {formatCurrency} from './currency.js';
+    import {formatCurrency} from '../currency/currency.js';
     import {buildPayment} from "./payment.js";
 
     export let mortgage;

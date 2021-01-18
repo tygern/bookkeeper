@@ -1,28 +1,11 @@
 <script>
-    import MortgageInput from "./MortgageInput.svelte";
-    import MortgageInfo from "./MortgageInfo.svelte";
-    import Payment from "./Payment.svelte";
-    import CalculationList from "./CalculationList.svelte";
-    import {calculationStore} from "./calculationStore.js"
-
-    class Mortgage {
-        constructor(amount, rate, period) {
-            this.amount = amount;
-            this.rate = rate;
-            this.period = period
-        }
-    }
-
-    class Calculation {
-        constructor(amount, rate, period, monthlyPayment, totalPayment, totalInterest) {
-            this.amount = amount;
-            this.rate = rate;
-            this.period = period;
-            this.monthlyPayment = monthlyPayment;
-            this.totalPayment = totalPayment;
-            this.totalInterest = totalInterest;
-        }
-    }
+    import MortgageInput from "./mortgage/MortgageInput.svelte";
+    import MortgageInfo from "./mortgage/MortgageInfo.svelte";
+    import {Mortgage} from "./mortgage/mortgage.js";
+    import Payment from "./payment/Payment.svelte";
+    import CalculationList from "./history/CalculationList.svelte";
+    import {calculationStore} from "./history/calculationStore.js"
+    import {Calculation} from "./history/calculation.js";
 
     let mortgage = new Mortgage(59_000, 1.9, 48);
     let payment;

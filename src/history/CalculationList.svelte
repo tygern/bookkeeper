@@ -1,5 +1,5 @@
 <script>
-    import {formatCurrency} from "./currency.js";
+    import {formatCurrency} from "../currency/currency.js";
 
     export let calculations;
 

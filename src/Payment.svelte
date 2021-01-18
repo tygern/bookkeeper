@@ -1,29 +1,11 @@
 <script>
     import {formatCurrency} from './currency.js';
+    import {buildPayment} from "./payment.js";
 
     export let mortgage;
     export let payment;
 
-    class Payment {
-        constructor(mortgage) {
-            this.mortgage = mortgage;
-        }
-
-        get monthlyPayment() {
-            const monthlyRate = mortgage.rate / 100 / 12;
-            return (monthlyRate * mortgage.amount) / (1 - Math.pow(1 + monthlyRate, -mortgage.period));
-        }
-
-        get totalPayment() {
-            return this.monthlyPayment * mortgage.period;
-        }
-
-        get totalInterest() {
-            return this.totalPayment - mortgage.amount;
-        }
-    }
-
-    $: payment = new Payment(mortgage);
+    $: payment = buildPayment(mortgage);
 </script>
 
 <h2>Payment</h2>

@@ -40,45 +40,7 @@
         margin-top: 1rem;
     }
 
-    label {
-        font-size: .6rem;
-        flex: 1;
-    }
-
     label:not(:last-child) {
         margin-right: 1rem;
-    }
-
-    input {
-        display: block;
-        margin-top: .5rem;
-        padding: .2rem .4rem;
-        width: 100%;
-        background-color: var(--background-color);
-
-        outline: none;
-        border: 1px solid var(--warning-color);
-        border-radius: 3px;
-
-        font-size: 1rem;
-        color: var(--text-color);
-    }
-
-    button {
-        margin-top: 1.1rem;
-        padding: .2rem .4rem;
-        background-color: var(--background-color);
-
-        border: 1px solid var(--highlight-color);
-        border-radius: 3px;
-
-        height: fit-content;
-
-        font-size: 1rem;
-        color: var(--text-color);
-    }
-
-    button:hover {
-        cursor: pointer;
     }
 </style>

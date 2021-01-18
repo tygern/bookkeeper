@@ -3,6 +3,7 @@
     import MortgageInfo from "./MortgageInfo.svelte";
     import Payment from "./Payment.svelte";
     import CalculationList from "./CalculationList.svelte";
+    import {calculationStore} from "./calculationStore.js"
 
     class Mortgage {
         constructor(amount, rate, period) {
@@ -25,17 +26,17 @@
 
     let mortgage = new Mortgage(59_000, 1.9, 48);
     let payment;
-    let calculations = [];
+    let calculations = calculationStore();
 
     function save() {
-        calculations = [...calculations, new Calculation(
+        calculations.add(new Calculation(
             mortgage.amount,
             mortgage.rate,
             mortgage.period,
             payment.monthlyPayment,
             payment.totalPayment,
             payment.totalInterest,
-        )]
+        ))
     }
 </script>
 
@@ -45,7 +46,7 @@
     <MortgageInput bind:mortgage on:save={save}/>
     <MortgageInfo mortgage={mortgage}/>
     <Payment mortgage={mortgage} bind:payment/>
-    <CalculationList bind:calculations/>
+    <CalculationList calculations={calculations}/>
 </main>
 
 <style>

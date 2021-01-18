@@ -2,6 +2,7 @@
     import {formatCurrency} from './currency.js';
 
     export let mortgage;
+    export let payment;
 
     class Payment {
         constructor(mortgage) {

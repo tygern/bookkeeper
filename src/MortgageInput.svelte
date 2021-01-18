@@ -1,14 +1,20 @@
 <script>
-    export let mortgage;
+    import { createEventDispatcher } from 'svelte';
 
+    export let mortgage;
     let years = mortgage.period / 12
+    const dispatch = createEventDispatcher();
 
     $: {
         mortgage.period = years * 12;
     }
+
+    function save() {
+        dispatch('save');
+    }
 </script>
 
-<fieldset>
+<form on:submit|preventDefault={save}>
     <label>
         Amount
         <input type="number" bind:value={mortgage.amount}>
@@ -23,10 +29,13 @@
         Period in years
         <input type="number" bind:value={years} min=0>
     </label>
-</fieldset>
+
+    <button type="submit">Save search</button>
+</form>
+
 
 <style>
-    fieldset {
+    form {
         display: flex;
         margin-top: 1rem;
     }
@@ -53,5 +62,23 @@
 
         font-size: 1rem;
         color: var(--text-color);
+    }
+
+    button {
+        margin-top: 1.1rem;
+        padding: .2rem .4rem;
+        background-color: var(--background-color);
+
+        border: 1px solid var(--highlight-color);
+        border-radius: 3px;
+
+        height: fit-content;
+
+        font-size: 1rem;
+        color: var(--text-color);
+    }
+
+    button:hover {
+        cursor: pointer;
     }
 </style>

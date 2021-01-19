@@ -57,6 +57,7 @@ table {
     --background-color: white;
     --highlight-color: #2595d6;
     --warning-color: #d03b3b;
+    --success-color: rgba(90, 214, 37, .5);
 }
 
 @media (prefers-color-scheme: dark) {

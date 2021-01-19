@@ -32,9 +32,10 @@ npm run dev
 - [x] Svelte stores
 - [x] Organization
 - [x] Deploy
-- [ ] SSL
+- [x] SSL
+- [x] Alerts
 - [ ] Typescript
 - [ ] Testing
 - [ ] Rest calls
-- [ ] Alerts
 - [ ] Svelte slots
+- [ ] Layout

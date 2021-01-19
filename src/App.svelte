@@ -6,10 +6,13 @@
     import CalculationList from "./history/CalculationList.svelte";
     import {calculationStore} from "./history/calculationStore.js"
     import {Calculation} from "./history/calculation.js";
+    import Alerts from "./alerts/Alerts.svelte";
+    import {alertStore} from "./alerts/alertStore.js"
 
     let mortgage = new Mortgage(59_000, 1.9, 48);
     let payment;
     let calculations = calculationStore();
+    let alerts = alertStore();
 
     function save() {
         calculations.add(new Calculation(
@@ -20,6 +23,8 @@
             payment.totalPayment,
             payment.totalInterest,
         ))
+
+        alerts.add("Saved")
     }
 </script>
 
@@ -30,6 +35,8 @@
     <MortgageInfo mortgage={mortgage}/>
     <Payment mortgage={mortgage} bind:payment/>
     <CalculationList calculations={calculations}/>
+
+    <Alerts alerts={alerts}/>
 </main>
 
 <style>

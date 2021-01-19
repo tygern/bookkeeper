@@ -10,8 +10,7 @@ export const alertStore = () => {
             let alert = new Alert(id++, message);
             store.update(list => [...list, alert])
 
-            setTimeout(() => store.update(list => list.filter(a => a !== alert)),
-                2_000)
+            setTimeout(() => store.update(list => list.filter(a => a !== alert)), 2_000)
         }
     }
 }

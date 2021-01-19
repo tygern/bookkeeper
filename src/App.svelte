@@ -28,20 +28,40 @@
     }
 </script>
 
-<main>
+<header>
     <h1>Bookkeeper</h1>
+</header>
 
-    <MortgageInput bind:mortgage on:save={save}/>
-    <MortgageInfo mortgage={mortgage}/>
-    <Payment mortgage={mortgage} bind:payment/>
-    <CalculationList calculations={calculations}/>
+<main>
+    <section>
+        <MortgageInput bind:mortgage on:save={save}/>
+        <MortgageInfo mortgage={mortgage}/>
+        <Payment mortgage={mortgage} bind:payment/>
+    </section>
+
+    <section>
+        <CalculationList calculations={calculations}/>
+    </section>
 
     <Alerts alerts={alerts}/>
 </main>
 
 <style>
+    header {
+        padding: 0 2rem;
+    }
+
     main {
-        max-width: 1000px;
-        margin: 2rem auto 0 auto;
+        margin: 0 auto;
+        padding: 1rem 2rem 2rem;
+        display: flex;
+    }
+
+    section {
+        flex: 1;
+    }
+
+    section:not(:last-child) {
+        margin-right: 2rem;
     }
 </style>

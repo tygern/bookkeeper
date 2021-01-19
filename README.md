@@ -34,8 +34,9 @@ npm run dev
 - [x] Deploy
 - [x] SSL
 - [x] Alerts
+- [x] Layout
+- [ ] Responsive
 - [ ] Typescript
 - [ ] Testing
 - [ ] Rest calls
 - [ ] Svelte slots
-- [ ] Layout

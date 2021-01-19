@@ -10,7 +10,7 @@ export const calculationStore = () => {
         subscribe: store.subscribe,
         add: calculation => {
             store.update(list => {
-                let updatedList = [...list, calculation];
+                let updatedList = [calculation, ...list];
                 localStorage.setItem(key, JSON.stringify(updatedList));
                 return updatedList;
             })

@@ -42,6 +42,7 @@
 
     button {
         border-color: var(--warning-color);
+        background-color: var(--warning-color);
         margin: 0;
     }
 

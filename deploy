@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+set -e
+
+rm -rf /tmp/public
+cp -R ./public /tmp/public
+pushd /tmp/public
+echo "www.bookkeeper.cash" > CNAME
+git init
+git add .
+git commit -m "Automated deploy"
+git remote add origin git@github.com:tygern/bookkeeper.git
+git push -f origin HEAD:gh-pages
+popd

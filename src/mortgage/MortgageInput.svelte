@@ -26,7 +26,7 @@
     </label>
 
     <label>
-        Period in years
+        Years
         <input type="number" bind:value={years} min=0>
     </label>
 

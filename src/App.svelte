@@ -64,4 +64,14 @@
     section:not(:last-child) {
         margin-right: 2rem;
     }
+
+    @media screen and (max-width: 1200px) {
+        main {
+            flex-direction: column;
+        }
+
+        section:not(:last-child) {
+            margin-right: 0;
+        }
+    }
 </style>

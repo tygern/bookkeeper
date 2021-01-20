@@ -1,16 +1,17 @@
-<script>
-    import { createEventDispatcher } from 'svelte';
+<script lang="ts">
+    import {createEventDispatcher} from "svelte"
+    import type {Mortgage} from "./mortgage"
 
-    export let mortgage;
+    export let mortgage: Mortgage
     let years = mortgage.period / 12
-    const dispatch = createEventDispatcher();
+    const dispatch = createEventDispatcher()
 
     $: {
-        mortgage.period = years * 12;
+        mortgage.period = years * 12
     }
 
     function save() {
-        dispatch('save');
+        dispatch('save')
     }
 </script>
 

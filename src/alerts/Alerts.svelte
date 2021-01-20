@@ -1,6 +1,8 @@
-<script>
-    import { fade } from 'svelte/transition';
-    export let alerts;
+<script lang="ts">
+    import { fade } from "svelte/transition"
+    import type {AlertStore} from "./alertStore"
+
+    export let alerts : AlertStore
 </script>
 
 <div class="alerts">

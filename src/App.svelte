@@ -1,18 +1,19 @@
-<script>
-    import MortgageInput from "./mortgage/MortgageInput.svelte";
-    import MortgageInfo from "./mortgage/MortgageInfo.svelte";
-    import {Mortgage} from "./mortgage/mortgage.js";
-    import Payment from "./payment/Payment.svelte";
-    import CalculationList from "./history/CalculationList.svelte";
-    import {calculationStore} from "./history/calculationStore.js"
-    import {Calculation} from "./history/calculation.js";
-    import Alerts from "./alerts/Alerts.svelte";
-    import {alertStore} from "./alerts/alertStore.js"
+<script lang="ts">
+    import MortgageInput from "./mortgage/MortgageInput.svelte"
+    import MortgageInfo from "./mortgage/MortgageInfo.svelte"
+    import {Mortgage} from "./mortgage/mortgage"
+    import PaymentInfo from "./payment/PaymentInfo.svelte"
+    import type {Payment} from "./payment/payment";
+    import {CalculationStore} from "./history/calculationStore"
+    import CalculationList from "./history/CalculationList.svelte"
+    import {Calculation} from "./history/calculation"
+    import Alerts from "./alerts/Alerts.svelte"
+    import {AlertStore} from "./alerts/alertStore"
 
-    let mortgage = new Mortgage(59_000, 1.9, 48);
-    let payment;
-    let calculations = calculationStore();
-    let alerts = alertStore();
+    let payment : Payment
+    let mortgage = new Mortgage(59_000, 1.9, 48)
+    let calculations = new CalculationStore()
+    let alerts = new AlertStore()
 
     function save() {
         calculations.add(new Calculation(
@@ -36,7 +37,7 @@
     <section>
         <MortgageInput bind:mortgage on:save={save}/>
         <MortgageInfo mortgage={mortgage}/>
-        <Payment mortgage={mortgage} bind:payment/>
+        <PaymentInfo mortgage={mortgage} bind:payment/>
     </section>
 
     <section>

@@ -1,7 +1,8 @@
-<script>
-    import {formatCurrency} from '../currency/currency.js';
+<script lang="ts">
+    import {formatCurrency} from "../currency/currency"
+    import type {Mortgage} from "./mortgage"
 
-    export let mortgage;
+    export let mortgage: Mortgage
 </script>
 
 <p>

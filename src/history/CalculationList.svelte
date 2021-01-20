@@ -1,10 +1,11 @@
-<script>
-    import {formatCurrency} from "../currency/currency.js";
+<script lang="ts">
+    import {formatCurrency} from "../currency/currency"
+    import type {CalculationStore} from "./calculationStore"
 
-    export let calculations;
+    export let calculations: CalculationStore;
 
     function clear() {
-        calculations.clear();
+        calculations.clear()
     }
 </script>
 

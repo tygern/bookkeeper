@@ -4,7 +4,7 @@ A loan calculator build with [Svelte](https://svelte.dev).
 
 ## Build
 
-Run the _build_ command to build the app to the _public_ folder.
+Run the _build_ command to check types, run tests, and build the app to the _public_ folder.
 
 ```bash
 npm run build

@@ -2,12 +2,14 @@
   "name": "svelte-app",
   "version": "1.0.0",
   "scripts": {
-    "build": "rollup -c",
-    "dev": "rollup -c -w",
-    "start": "sirv public",
     "clean": "rm -rf ./public/build",
-    "validate": "svelte-check",
-    "test": "jest"
+    "preassemble": "svelte-check",
+    "assemble": "rollup -c",
+    "test": "jest",
+    "build": "npm run assemble && npm run test",
+
+    "dev": "rollup -c -w",
+    "start": "sirv public"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^16.0.0",

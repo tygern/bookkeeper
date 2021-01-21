@@ -1,6 +1,6 @@
 # Bookkeeper
 
-A mortgage calculator build with [Svelte](https://svelte.dev).
+A loan calculator build with [Svelte](https://svelte.dev).
 
 ## Build
 
@@ -38,5 +38,6 @@ npm run dev
 - [x] Responsive
 - [x] Typescript
 - [ ] Testing
+- [ ] Keyboard shortcuts
 - [ ] Rest calls
 - [ ] Svelte slots

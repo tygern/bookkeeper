@@ -15,11 +15,6 @@ export class AlertStore implements Readable<Alert[]> {
 }
 
 export class Alert {
-    readonly id: number
-    readonly message: string
-
-    constructor(id: number, message: string) {
-        this.id = id
-        this.message = message
+    constructor(readonly id: number, readonly message: string) {
     }
 }

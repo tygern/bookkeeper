@@ -12,7 +12,7 @@
 
     let payment : Payment
     let mortgage = new Mortgage(59_000, 1.9, 48)
-    let calculations = new CalculationStore()
+    let calculations = new CalculationStore(localStorage)
     let alerts = new AlertStore()
 
     function save() {

@@ -4,15 +4,14 @@
     import {Mortgage} from "./mortgage/mortgage"
     import PaymentInfo from "./payment/PaymentInfo.svelte"
     import type {Payment} from "./payment/payment";
-    import {CalculationStore} from "./history/calculationStore"
-    import CalculationList from "./history/CalculationList.svelte"
-    import {Calculation} from "./history/calculation"
+    import CalculationList from "./calculations/CalculationList.svelte"
+    import {Calculation} from "./calculations/calculation"
     import Alerts from "./alerts/Alerts.svelte"
     import {AlertStore} from "./alerts/alertStore"
+    import {calculations} from "./calculations/localStorageCalculationStore";
 
     let payment : Payment
     let mortgage = new Mortgage(59_000, 1.9, 48)
-    let calculations = new CalculationStore(localStorage)
     let alerts = new AlertStore()
 
     function save() {
@@ -41,7 +40,7 @@
     </section>
 
     <section>
-        <CalculationList calculations={calculations}/>
+        <CalculationList/>
     </section>
 
     <Alerts alerts={alerts}/>

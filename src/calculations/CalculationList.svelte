@@ -1,8 +1,6 @@
 <script lang="ts">
     import {formatCurrency} from "../currency/currency"
-    import type {CalculationStore} from "./calculationStore"
-
-    export let calculations: CalculationStore;
+    import {calculations} from ".//localStorageCalculationStore";
 
     function clear() {
         calculations.clear()

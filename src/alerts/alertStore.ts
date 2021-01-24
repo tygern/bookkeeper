@@ -14,7 +14,7 @@ export class AlertStore implements Readable<Alert[]> {
     }
 }
 
-export class Alert {
+class Alert {
     constructor(readonly id: number, readonly message: string) {
     }
 }

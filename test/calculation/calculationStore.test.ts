@@ -1,7 +1,7 @@
-import {CalculationStore, LocalStorage} from "../../src/history/calculationStore";
-import {Calculation} from "../../src/history/calculation";
+import {CalculationStore, Storage} from "../../src/calculations/calculationStore";
+import {Calculation} from "../../src/calculations/calculation";
 
-let storage: LocalStorage
+let storage: Storage
 let store: CalculationStore
 let addedCalculation: Calculation
 
@@ -27,7 +27,7 @@ test("add saves to local storage", () => {
     expect(storedCalculations).toEqual([addedCalculation])
 })
 
-class MockStorage implements LocalStorage {
+class MockStorage implements Storage {
     private storedValue: string | null = null
     private mockKey = "bookkeeper-calculations"
 

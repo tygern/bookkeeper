@@ -1,19 +1,19 @@
 import {Readable, Writable, writable} from "svelte/store"
 import type {Calculation} from "./calculation"
 
-export interface LocalStorage {
+export interface Storage {
     getItem(key: string): string | null
     setItem(key: string, value: string): void;
 }
 
 export class CalculationStore implements Readable<Calculation[]> {
     private readonly key = "bookkeeper-calculations"
-    private readonly storage: LocalStorage;
+    private readonly storage: Storage;
     private readonly retrievedValue: Calculation[]
     private readonly store: Writable<Calculation[]>
     subscribe: (run: (value: Calculation[]) => void, invalidate?: ((value?: Calculation[] | undefined) => void) | undefined) => () => void
 
-    constructor(storage: LocalStorage) {
+    constructor(storage: Storage) {
         this.storage = storage;
         this.retrievedValue = JSON.parse(this.storage.getItem(this.key) || "[]")
         this.store = writable(this.retrievedValue)

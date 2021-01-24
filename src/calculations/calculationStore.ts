@@ -11,7 +11,8 @@ export class CalculationStore implements Readable<Calculation[]> {
     private readonly storage: Storage;
     private readonly retrievedValue: Calculation[]
     private readonly store: Writable<Calculation[]>
-    subscribe: (run: (value: Calculation[]) => void, invalidate?: ((value?: Calculation[] | undefined) => void) | undefined) => () => void
+
+    subscribe: (run: Subscriber<Calculation[]>, invalidate?: Invalidator<Calculation[]>) => Unsubscriber;
 
     constructor(storage: Storage) {
         this.storage = storage;

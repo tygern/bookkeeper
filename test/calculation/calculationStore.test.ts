@@ -14,10 +14,12 @@ beforeEach(() => {
 test("add sends to subscribers", done => {
     store.add(addedCalculation)
 
-    store.subscribe(storedCalculations => {
+    let unsubscribe = store.subscribe(storedCalculations => {
         expect(storedCalculations).toEqual([addedCalculation])
         done()
     })
+
+    unsubscribe()
 }, 100)
 
 test("add saves to local storage", () => {

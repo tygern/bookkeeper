@@ -1,4 +1,4 @@
-export class Mortgage {
+export class Loan {
     constructor(
         public amount: number,
         public rate: number,

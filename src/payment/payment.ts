@@ -1,10 +1,10 @@
-import type {Mortgage} from "../mortgage/mortgage"
+import type {Loan} from "../loan/loan"
 
-export function buildPayment(mortgage: Mortgage): Payment {
-    const monthlyRate = mortgage.rate / 100 / 12
-    const monthlyPayment = (monthlyRate * mortgage.amount) / (1 - Math.pow(1 + monthlyRate, -mortgage.period))
-    const totalPayment = monthlyPayment * mortgage.period
-    const totalInterest = totalPayment - mortgage.amount
+export function buildPayment(loan: Loan): Payment {
+    const monthlyRate = loan.rate / 100 / 12
+    const monthlyPayment = (monthlyRate * loan.amount) / (1 - Math.pow(1 + monthlyRate, -loan.period))
+    const totalPayment = monthlyPayment * loan.period
+    const totalInterest = totalPayment - loan.amount
 
     return new Payment(
         monthlyPayment,

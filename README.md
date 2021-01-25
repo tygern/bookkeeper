@@ -37,7 +37,7 @@ npm run dev
 - [x] Layout
 - [x] Responsive
 - [x] Typescript
-- [ ] Testing
+- [x] Testing
 - [ ] Keyboard shortcuts
 - [ ] Rest calls
 - [ ] Svelte slots

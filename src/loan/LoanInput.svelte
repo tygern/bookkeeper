@@ -1,13 +1,13 @@
 <script lang="ts">
     import {createEventDispatcher} from "svelte"
-    import type {Mortgage} from "./mortgage"
+    import type {Loan} from "./loan"
 
-    export let mortgage: Mortgage
-    let years = mortgage.period / 12
+    export let loan: Loan
+    let years = loan.period / 12
     const dispatch = createEventDispatcher()
 
     $: {
-        mortgage.period = years * 12
+        loan.period = years * 12
     }
 
     function save() {
@@ -18,12 +18,12 @@
 <form on:submit|preventDefault={save}>
     <label>
         Amount
-        <input type="number" bind:value={mortgage.amount}>
+        <input type="number" bind:value={loan.amount}>
     </label>
 
     <label>
         Rate
-        <input type="number" bind:value={mortgage.rate} min=0 step=0.05>
+        <input type="number" bind:value={loan.rate} min=0 step=0.05>
     </label>
 
     <label>

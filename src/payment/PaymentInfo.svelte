@@ -1,12 +1,12 @@
 <script lang="ts">
     import {formatCurrency} from "../currency/currency"
     import {buildPayment, Payment} from "./payment"
-    import type {Mortgage} from "../mortgage/mortgage"
+    import type {Loan} from "../loan/loan"
 
-    export let mortgage: Mortgage
+    export let loan: Loan
     export let payment: Payment
 
-    $: payment = buildPayment(mortgage)
+    $: payment = buildPayment(loan)
 </script>
 
 <h2>Payment</h2>

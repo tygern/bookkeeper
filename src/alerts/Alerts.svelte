@@ -15,7 +15,7 @@
 
 <style>
     .alerts {
-        position: absolute;
+        position: fixed;
         bottom: 1rem;
         right: 1rem;
     }

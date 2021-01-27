@@ -1,28 +1,21 @@
 <script lang="ts">
     import LoanInput from "./loan/LoanInput.svelte"
-    import LoanInfo from "./loan/LoanInfo.svelte"
     import {Loan} from "./loan/loan"
-    import PaymentInfo from "./payment/PaymentInfo.svelte"
-    import type {Payment} from "./payment/payment";
     import CalculationList from "./calculations/CalculationList.svelte"
-    import {Calculation} from "./calculations/calculation"
+    import {calculate, Calculation} from "./calculations/calculation"
     import Alerts from "./alerts/Alerts.svelte"
     import {AlertStore} from "./alerts/alertStore"
     import {calculations} from "./calculations/localStorageCalculationStore";
+    import CalculationInfo from "./calculations/CalculationInfo.svelte";
 
-    let payment : Payment
+    let calculation: Calculation
     let loan = new Loan(59_000, 1.9, 48)
     let alerts = new AlertStore()
 
+    $: calculation = calculate(loan)
+
     function save() {
-        calculations.add(new Calculation(
-            loan.amount,
-            loan.rate,
-            loan.period,
-            payment.monthlyPayment,
-            payment.totalPayment,
-            payment.totalInterest,
-        ))
+        calculations.add(calculation)
 
         alerts.add("Saved")
     }
@@ -35,8 +28,7 @@
 <main>
     <section>
         <LoanInput bind:loan on:save={save}/>
-        <LoanInfo loan={loan}/>
-        <PaymentInfo loan={loan} bind:payment/>
+        <CalculationInfo bind:calculation/>
     </section>
 
     <section>

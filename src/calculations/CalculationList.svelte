@@ -1,12 +1,11 @@
 <script lang="ts">
-    import {formatCurrency} from "../currency/currency"
-    import {calculations} from ".//localStorageCalculationStore";
+    import {calculations} from "./localStorageCalculationStore";
+    import CalculationInfo from "./CalculationInfo.svelte";
 
     function clear() {
         calculations.clear()
     }
 </script>
-
 
 <h2>
     History
@@ -19,15 +18,7 @@
 <ul>
     {#each $calculations as calculation}
         <li>
-            <p>
-                <strong>{formatCurrency(calculation.amount)}</strong>
-                @ <strong>{formatCurrency(calculation.rate)}%</strong>
-                for <strong>{calculation.period}</strong> months.
-                <br>
-                Pay <strong class="highlight">{formatCurrency(calculation.monthlyPayment)}</strong>/month
-                (<strong class="highlight">{formatCurrency(calculation.totalPayment)}</strong> total),
-                including <strong class="highlight">{formatCurrency(calculation.totalInterest)}</strong> interest.
-            </p>
+            <CalculationInfo calculation={calculation}/>
         </li>
     {/each}
 </ul>
@@ -43,13 +34,5 @@
         border-color: var(--warning-color);
         background-color: var(--warning-color);
         margin: 0;
-    }
-
-    strong {
-        color: var(--warning-color);
-    }
-
-    strong.highlight {
-        color: var(--highlight-color);
     }
 </style>

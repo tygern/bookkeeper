@@ -44,4 +44,19 @@
     label:not(:last-child) {
         margin-right: 1rem;
     }
+
+    @media screen and (max-width: 1200px) {
+        form {
+            flex-direction: column;
+        }
+
+        label, label:not(:last-child) {
+            margin-right: 0;
+            margin-bottom: 1rem;
+        }
+
+        button {
+            margin-top: .3rem;
+        }
+    }
 </style>

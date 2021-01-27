@@ -25,19 +25,3 @@ Run a local server at [localhost:5000](http://localhost:5000) with the _dev_ com
 ```bash
 npm run dev
 ```
-
-## Todo
-
-- [x] Svelte basics
-- [x] Svelte stores
-- [x] Organization
-- [x] Deploy
-- [x] SSL
-- [x] Alerts
-- [x] Layout
-- [x] Responsive
-- [x] Typescript
-- [x] Testing
-- [ ] Keyboard shortcuts
-- [ ] Rest calls
-- [ ] Svelte slots

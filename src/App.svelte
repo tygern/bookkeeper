@@ -74,4 +74,14 @@
             margin-right: 0;
         }
     }
+
+    @media screen and (max-width: 1200px) {
+        header {
+            padding: 0 1rem;
+        }
+
+        main {
+            padding: 1rem;
+        }
+    }
 </style>

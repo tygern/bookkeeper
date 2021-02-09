@@ -131,6 +131,12 @@ input {
     color: var(--text-color);
 }
 
+@media (prefers-color-scheme: dark) {
+    input {
+        background-color: var(--shadow-color);
+    }
+}
+
 button {
     margin-top: 1.1rem;
     padding: .2rem .4rem;

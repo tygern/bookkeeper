@@ -12,3 +12,8 @@ test("deals with bad input", () => {
     expect(formatCurrency(null)).toEqual("$0.00")
     expect(formatCurrency(undefined)).toEqual("$0.00")
 })
+
+test("accepts fractional digits parameter", () => {
+    expect(formatCurrency(18.75123, 3)).toEqual("$18.751")
+    expect(formatCurrency(18.75123, 0)).toEqual("$19")
+})

@@ -1,5 +1,7 @@
 import org.gradle.api.tasks.Exec
 
+buildDir = File(projectDir, "public")
+
 tasks.register<Exec>("clean") {
     group = "NPM"
     description = "Clean public/build"

@@ -1,6 +1,5 @@
 .idea
 .DS_Store
 .gradle
-
-components/frontend/node_modules/
-components/frontend/public/build/
+build
+node_modules

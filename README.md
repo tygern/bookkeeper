@@ -1,27 +1,19 @@
 # Bookkeeper
 
-A loan calculator build with [Svelte](https://svelte.dev).
+A loan calculator build with [Svelte](https://svelte.dev) and [Ktor](https://ktor.io).
 
 ## Build
 
-Run the _build_ command to check types, run tests, and build the app to the _public_ folder.
+Run the _build_ command run all tests and build a jar.
 
 ```bash
-npm run build
-```
-
-## Deploy
-
-Run the _deploy_ script to deploy the app to GitHub pages.
-
-```bash
-./deploy
+./gradlew build
 ```
 
 ## Local development
 
-Run a local server at [localhost:5000](http://localhost:5000) with the _dev_ command.
+Build the app then run the jar.
 
 ```bash
-npm run dev
+PORT=8081 java -jar applications/bookkeeper-app/build/libs/bookkeeper-app.jar
 ```

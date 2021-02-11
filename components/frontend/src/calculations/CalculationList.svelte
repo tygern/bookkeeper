@@ -1,6 +1,6 @@
 <script lang="ts">
-    import {calculations} from "./localStorageCalculationStore";
     import CalculationInfo from "./CalculationInfo.svelte";
+    import {calculations} from "../Config";
 
     function clear() {
         calculations.clear()

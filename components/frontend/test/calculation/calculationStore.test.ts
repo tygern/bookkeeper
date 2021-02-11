@@ -1,13 +1,13 @@
-import {CalculationStore, Storage} from "../../src/calculations/calculationStore";
+import {CalculationRepository, CalculationStore} from "../../src/calculations/calculationStore";
 import {Calculation} from "../../src/calculations/calculation";
 
-let storage: Storage
 let store: CalculationStore
 let addedCalculation: Calculation
+let repo: CalculationRepository
 
 beforeEach(() => {
-    storage = new MockStorage()
-    store = new CalculationStore(storage)
+    repo = new FakeCalculationRepository()
+    store = new CalculationStore(repo)
     addedCalculation = new Calculation(0, 1, 2, 3, 4, 5)
 })
 
@@ -22,24 +22,36 @@ test("add sends to subscribers", done => {
     unsubscribe()
 }, 100)
 
-test("add saves to local storage", () => {
+test("add updates the repo", () => {
     store.add(addedCalculation)
 
-    let storedCalculations = JSON.parse(storage.getItem("bookkeeper-calculations") || "[]")
-    expect(storedCalculations).toEqual([addedCalculation])
+    expect(repo.list()).toEqual([addedCalculation])
 })
 
-class MockStorage implements Storage {
-    private storedValue: string | null = null
-    private mockKey = "bookkeeper-calculations"
+test("clear", done => {
+    store.add(addedCalculation)
+    store.clear()
 
-    getItem(key: string): string | null {
-        return key == this.mockKey ? this.storedValue : null;
+    let unsubscribe = store.subscribe(storedCalculations => {
+        expect(storedCalculations).toEqual([])
+        done()
+    })
+
+    unsubscribe()
+}, 100)
+
+class FakeCalculationRepository implements CalculationRepository {
+    private calculationList: Calculation[] = []
+
+    add(calculation: Calculation): void {
+        this.calculationList.push(calculation)
     }
 
-    setItem(key: string, value: string): void {
-        if (key == this.mockKey) {
-            this.storedValue = value
-        }
+    clear(): void {
+        this.calculationList = []
+    }
+
+    list(): Calculation[] {
+        return this.calculationList;
     }
 }

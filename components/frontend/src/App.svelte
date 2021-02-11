@@ -5,8 +5,8 @@
     import {calculate, Calculation} from "./calculations/calculation"
     import Alerts from "./alerts/Alerts.svelte"
     import {AlertStore} from "./alerts/alertStore"
-    import {calculations} from "./calculations/localStorageCalculationStore";
     import CalculationInfo from "./calculations/CalculationInfo.svelte";
+    import {calculations} from "./Config";
 
     let calculation: Calculation
     let loan = new Loan(59_000, 1.9, 48)
